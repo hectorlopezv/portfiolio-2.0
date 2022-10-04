@@ -5,10 +5,7 @@ type Props = {};
 
 const Skills = (props: Props) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1 }}
+    <div
       className="flex relative flex-col text-center md:text-left xl:flex-row
       max-w-fit xl:px-10 h-screen justify-center xl:space-y-0 mx-auto
       items-center"
@@ -36,7 +33,7 @@ const Skills = (props: Props) => {
         <Skill />
         <Skill />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

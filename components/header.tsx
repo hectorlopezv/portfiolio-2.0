@@ -34,7 +34,7 @@ const Header = (props: Props) => {
           }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="flex flex-row items-center text-gray-300 cursor-pointer"
+          className="flex flex-row items-center text-gray-300 cursor-pointer space-x-2 md:mr-2"
         >
           <SocialIcon
             className="cursor-pointer"
