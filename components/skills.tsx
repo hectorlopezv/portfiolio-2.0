@@ -6,8 +6,8 @@ type Props = {};
 const Skills = (props: Props) => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, x: -200 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1.5 }}
       className="h-screen relative flex flex-col text-center 
     justify-center xl:space-y-0 mx-auto items-center

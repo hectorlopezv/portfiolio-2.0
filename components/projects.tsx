@@ -20,7 +20,9 @@ const Projects = (props: Props) => {
 
       <div
         className="relative w-full flex overflow-x-scroll 
-      overflow-y-hidden snap-x snap-mandatory z-20"
+      overflow-y-hidden snap-x snap-mandatory z-20
+       scrollbar-thin
+      "
       >
         {/*Projects */}
         {projects.map((project, index) => (
