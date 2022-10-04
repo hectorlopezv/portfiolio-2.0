@@ -18,7 +18,8 @@ const Skill = ({ directionLeft }: Props) => {
         className="rounded-full border
         xl:w-32 filter group-hover:grayscale transition 
         duration-300 ease-in-out
-        border-gray-500 object-cover w-24 h-24"
+        border-gray-500 object-cover h-24 w-24 md:w-28 xl:h-32
+        md:h-28"
       />
 
       <div
