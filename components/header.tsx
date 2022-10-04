@@ -5,7 +5,7 @@ type Props = {};
 const Header = (props: Props) => {
   return (
     <header
-      className="sticky top-0 flex p-5 items-start justify-between max-w-7xl mx-auto z-20
+      className="sticky top-0 flex p-5 items-start justify-between max-w-7xl mx-auto z-200
     xl:items-center
     "
     >
