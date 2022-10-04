@@ -20,8 +20,9 @@ const Projects = (props: Props) => {
 
       <div
         className="relative w-full flex overflow-x-scroll 
-      overflow-y-hidden snap-x snap-mandatory z-20
-       scrollbar-thin
+      overflow-y-hidden snap-x snap-mandatory z-10
+      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
+
       "
       >
         {/*Projects */}
