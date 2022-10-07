@@ -1,15 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 import { useTypewriter } from "../hooks/useTypeWritter";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
 import BackGroundCircles from "./BackGroundCircles";
 import { Cursor } from "./Cursor";
-import ProfilePicture from "../images/profile.png";
-import Link from "next/link";
-interface PropsType {}
-const HeroComponent: FC<PropsType> = () => {
+interface PropsType {
+  pageInfo: PageInfo;
+}
+const HeroComponent: FC<PropsType> = ({ pageInfo }) => {
   const [text] = useTypewriter({
     words: [
-      "Hi, My Name's Hector Lopez",
+      `Hi, My Name's ${pageInfo?.name}`,
       "Full-Stack Developer",
       "GCP Cloud Architect",
       "Cross-Platform On Flutter",
@@ -23,16 +26,16 @@ const HeroComponent: FC<PropsType> = () => {
       <BackGroundCircles />
       <div className="relative h-52 w-52">
         <Image
-          src={ProfilePicture}
+          src={urlFor(pageInfo?.heroImage).url()}
           alt="profile picture"
           layout="fill"
-          className="relative rounded-full mx-auto object-cover"
+          className="rounded-full mx-auto object-cover"
         />
       </div>
 
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-          Software Engineer
+          {pageInfo.role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>

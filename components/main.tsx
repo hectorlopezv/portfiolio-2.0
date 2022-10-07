@@ -1,18 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import Header from "../components/header";
 import HeroComponent from "../components/hero";
+import { Props } from "../typings";
 import About from "./about";
 import ContactMe from "./contact-me";
 import Experience from "./experience";
+import GoUp from "./go-up";
 import Projects from "./projects";
 import Skills from "./skills";
-import { ArrowTrendingUpIcon } from "@heroicons/react/24/solid";
-import GoUp from "./go-up";
 
-const Main: NextPage = () => {
+const Main = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
   return (
     <div
       className="bg-[rgb(36,36,36)] text-white
@@ -24,38 +22,31 @@ const Main: NextPage = () => {
         <title>Hector Portfolio</title>
       </Head>
 
-      {/* Header */}
-      <Header />
-      {/* Hero */}
+      <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <HeroComponent />
+        <HeroComponent pageInfo={pageInfo} />
       </section>
-      {/* About */}
 
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo} />
       </section>
-      {/* Experience */}
 
       <section id="experience" className="snap-center">
-        <Experience />
+        <Experience experiences={expereiences} />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="contact" className="snap-start">
         <ContactMe />
       </section>
-      {/* Skills */}
-      {/* Projects */}
-      {/* Contact Me */}
 
       <GoUp />
     </div>

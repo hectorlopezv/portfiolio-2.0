@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { Experience } from "../typings";
 import ExperienceCard from "./experience-card";
-import Globant from "../images/companies/globant-logo.jpg";
-type Props = {};
+type Props = {
+  experiences: Experience[];
+};
 
-const Experience = (props: Props) => {
+const Experience = ({ experiences }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,12 +13,13 @@ const Experience = (props: Props) => {
       transition={{ duration: 1.5 }}
       className="h-screen flex relative overflow-hidden
     items-center
-    flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto
+    flex-col text-left md:flex-row 
+    max-w-full px-10 justify-evenly mx-auto
     
     
     "
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 md:top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
         Experience
       </h3>
 
@@ -24,15 +27,13 @@ const Experience = (props: Props) => {
         className="
       mx-auto w-full flex space-x-5 overflow-x-scroll 
       p-10 snap-x snap-mandatory top-28 absolute
-      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
+      scrollbar-thin scrollbar-track-gray-400/20 
+      scrollbar-thumb-[#F7AB0A]/80
       "
       >
-        {/*Experience cards*/}
-        <ExperienceCard image={Globant.src} />
-        <ExperienceCard image={Globant.src} />
-        <ExperienceCard image={Globant.src} />
-        <ExperienceCard image={Globant.src} />
-        <ExperienceCard image={Globant.src} />
+        {experiences?.map((experience) => (
+          <ExperienceCard key={experience._id} experience={experience} />
+        ))}
       </div>
     </motion.div>
   );

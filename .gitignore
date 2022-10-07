@@ -11,7 +11,7 @@
 # next.js
 /.next/
 /out/
-
+portafolio2/node_modules
 # production
 /build
 
