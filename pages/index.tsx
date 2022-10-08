@@ -52,7 +52,7 @@ const Home = (props: Props) => {
               <Head>
                 <title>{`Hector Lopez - Portfolio`}</title>
               </Head>
-              <HeaderPortfolio socials={props.socials} />
+              <HeaderPortfolio socials={props?.socials} />
             </>
           )}
       </div>

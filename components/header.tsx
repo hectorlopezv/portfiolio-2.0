@@ -26,7 +26,7 @@ const HeaderPortfolio = ({ socials }: Props) => {
           transition={{ duration: 1.5 }}
           className="flex flex-row items-center"
         >
-          {socials.map((social) => (
+          {socials?.map((social) => (
             <SocialIcon
               url={social?.url}
               fgColor="gray"
