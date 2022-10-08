@@ -7,7 +7,7 @@ type Props = {
   socials: Social[];
 };
 
-const Header = ({ socials }: Props) => {
+const HeaderPortfolio = ({ socials }: Props) => {
   return (
     <Head>
       <div
@@ -60,4 +60,4 @@ const Header = ({ socials }: Props) => {
     </Head>
   );
 };
-export default Header;
+export default HeaderPortfolio;
