@@ -10,8 +10,8 @@ const HeroHeader = ({ socials }: Props) => {
   if (!socials) return null;
   return (
     <header
-      className="sticky top-0 flex p-5 items-start justify-between max-w-7xl mx-auto z-20
-    xl:items-center
+      className="fixed  inline-flex p-5 items-start justify-between max-w-7xl mx-auto z-20
+    xl:items-center h-11 w-full
     "
     >
       <motion.div
