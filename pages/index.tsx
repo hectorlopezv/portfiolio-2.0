@@ -8,9 +8,17 @@ import HeroComponent from "../components/hero";
 import Projects from "../components/projects";
 import Skills from "../components/skills";
 
-import { Experience as TExperience, PageInfo, Props } from "../typings";
+import {
+  Experience as TExperience,
+  PageInfo,
+  Project,
+  Props,
+  Skill,
+} from "../typings";
 import { FetchExperiences } from "../utils/fetchExperiences";
 import { FetchPageInfo } from "../utils/fetchPageInfo";
+import { FetchProjects } from "../utils/fetchProjects";
+import { FetchSkills } from "../utils/fetchSkills";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
@@ -74,8 +82,8 @@ const Home = (props: Props) => {
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const pageInfo: PageInfo = await FetchPageInfo();
   const experiences: TExperience[] = await FetchExperiences();
-  // const skills: Skill[] = await FetchSkills();
-  // const projects: Project[] = await FetchProjects();
+  const skills: Skill[] = await FetchSkills();
+  const projects: Project[] = await FetchProjects();
   //const socials: Social[] = await FetchSocials();
   // console.log("socials", socials);
   return {
@@ -83,9 +91,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
       pageInfo,
       //  socials,
       experiences,
-      // skills,
-      // projects,
-      // socials,
+      skills,
+      projects,
     },
   };
 };
