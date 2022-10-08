@@ -3,19 +3,8 @@ import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
 import HeaderPortfolio from "../components/header";
 
-import {
-  Experience as ExpType,
-  PageInfo,
-  Project,
-  Props,
-  Skill,
-  Social,
-} from "../typings";
-import { FetchExperiences } from "../utils/fetchExperiences";
+import { PageInfo, Props } from "../typings";
 import { FetchPageInfo } from "../utils/fetchPageInfo";
-import { FetchProjects } from "../utils/fetchProjects";
-import { FetchSkills } from "../utils/fetchSkills";
-import { FetchSocials } from "../utils/fetchSocials";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
@@ -44,7 +33,7 @@ const Home = (props: Props) => {
       >
         {props &&
           props?.pageInfo &&
-          props?.expereiences &&
+          props?.experiences &&
           props?.projects &&
           props?.skills &&
           props?.socials && (
@@ -60,22 +49,21 @@ const Home = (props: Props) => {
   );
 };
 
-export default Home;
-
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const pageInfo: PageInfo = await FetchPageInfo();
-  const experience: ExpType[] = await FetchExperiences();
-  const skills: Skill[] = await FetchSkills();
-  const projects: Project[] = await FetchProjects();
-  const socials: Social[] = await FetchSocials();
-
+  // const experiences: ExpType[] = await FetchExperiences();
+  // const skills: Skill[] = await FetchSkills();
+  // const projects: Project[] = await FetchProjects();
+  // const socials: Social[] = await FetchSocials();
+  console.log("pageInfo", pageInfo);
   return {
     props: {
       pageInfo,
-      expereiences: experience,
-      skills,
-      projects,
-      socials,
+      // experiences,
+      // skills,
+      // projects,
+      // socials,
     },
   };
 };
+export default Home;

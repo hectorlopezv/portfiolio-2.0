@@ -66,9 +66,9 @@ export interface Social extends SanityBody {
 }
 
 export type Props = {
-  pageInfo: PageInfo;
-  expereiences: Experience[];
-  skills: Skill[];
-  projects: Project[];
-  socials: Social[];
+  pageInfo?: PageInfo;
+  experiences?: Experience[];
+  skills?: Skill[];
+  projects?: Project[];
+  socials?: Social[];
 };
