@@ -10,7 +10,7 @@ export const Cursor = ({
   cursorColor = "inherit",
 }: CursorProps): JSX.Element => {
   return (
-    <span style={{ color: cursorColor }} className={styles.blinkingCursor}>
+    <span style={{ color: cursorColor }} className={styles?.blinkingCursor}>
       {cursorStyle}
     </span>
   );

@@ -24,7 +24,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
         <Image
           layout="fill"
           alt="skill"
-          src={urlFor(skill?.image).url()}
+          src={urlFor(skill?.image)?.url()}
           className="object-cover rounded-full"
         />
       </motion.div>
@@ -35,7 +35,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
         h-[4.5rem] md:h-20 rounded-full z-0"
       >
         <div className="flex items-center justify-center h-full">
-          <p className="text-2xl md:text-3xl font-bold text-black opacity-100">{`${skill.progress}%`}</p>
+          <p className="text-2xl md:text-3xl font-bold text-black opacity-100">{`${skill?.progress}%`}</p>
         </div>
       </div>
     </div>

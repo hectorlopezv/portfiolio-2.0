@@ -33,7 +33,7 @@ const Projects = ({ projects }: Props) => {
             className="w-screen flex-shrink-0 snap-center 
             flex flex-col space-y-5 items-center justify-center h-screen
             "
-            key={project._id}
+            key={project?._id}
           >
             <motion.div
               initial={{ y: -300, opacity: 0 }}
@@ -44,7 +44,7 @@ const Projects = ({ projects }: Props) => {
                md:h-[400px]"
             >
               <Image
-                src={urlFor(project?.image).url()}
+                src={urlFor(project?.image)?.url()}
                 alt="project image"
                 layout="fill"
                 className="object-cover rounded-lg"
@@ -61,7 +61,7 @@ const Projects = ({ projects }: Props) => {
               <div className="flex items-center space-x-2 justify-center flex-wrap px-2">
                 {project?.techonologies?.map((tech) => (
                   <motion.div
-                    key={tech._id}
+                    key={tech?._id}
                     initial={{ y: -300, opacity: 0 }}
                     transition={{ duration: 1.2 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ const Projects = ({ projects }: Props) => {
                     className="relative h-10 w-10"
                   >
                     <Image
-                      src={urlFor(tech?.image).url()}
+                      src={urlFor(tech?.image)?.url()}
                       alt="project image"
                       layout="fill"
                       className="object-cover rounded-full"

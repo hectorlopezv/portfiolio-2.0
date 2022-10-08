@@ -27,10 +27,10 @@ const HeaderPortfolio = ({ socials }: Props) => {
         >
           {socials.map((social) => (
             <SocialIcon
-              url={social.url}
+              url={social?.url}
               fgColor="gray"
               bgColor="transparent"
-              key={social._id}
+              key={social?._id}
             />
           ))}
         </motion.div>

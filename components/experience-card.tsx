@@ -40,7 +40,7 @@ const ExperienceCard = ({ experience }: Props) => {
           {experience?.technologies?.map((technology) => (
             <div className="h-10 w-10 relative" key={technology?._id}>
               <Image
-                src={urlFor(technology?.image).url()}
+                src={urlFor(technology?.image)?.url()}
                 alt="skill"
                 layout="fill"
                 className="rounded-full object-cover object-center"
@@ -49,10 +49,10 @@ const ExperienceCard = ({ experience }: Props) => {
           ))}
         </div>
         <p className="uppercase py-5 text-gray-300">
-          {new Date(experience?.dateStarted).toDateString()} -{" "}
+          {new Date(experience?.dateStarted)?.toDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"
-            : new Date(experience.dateEnded).toDateString()}
+            : new Date(experience?.dateEnded)?.toDateString()}
         </p>
         <ul
           className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll scrollbar-thin

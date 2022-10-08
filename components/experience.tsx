@@ -32,7 +32,7 @@ const Experience = ({ experiences }: Props) => {
       "
       >
         {experiences?.map((experience) => (
-          <ExperienceCard key={experience._id} experience={experience} />
+          <ExperienceCard key={experience?._id} experience={experience} />
         ))}
       </div>
     </motion.div>
