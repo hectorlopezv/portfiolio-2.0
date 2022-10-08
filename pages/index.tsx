@@ -58,7 +58,6 @@ const Home = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
       <section id="contact" className="snap-start">
         <ContactMe />
       </section>
-
       <GoUp />
     </div>
   );
