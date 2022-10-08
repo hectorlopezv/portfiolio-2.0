@@ -48,35 +48,33 @@ const Home = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        <Head>
-          <title>{`Hector Lopez - Portfolio`}</title>
-        </Head>
-
-        <HeaderPortfolio socials={socials} />
-        <section id="hero" className="snap-start">
-          <HeroComponent pageInfo={pageInfo} />
-        </section>
-
-        <section id="about" className="snap-center">
-          <About pageInfo={pageInfo} />
-        </section>
-
-        <section id="experience" className="snap-center">
-          <Experience experiences={expereiences} />
-        </section>
-
-        <section id="skills" className="snap-start">
-          <Skills skills={skills} />
-        </section>
-
-        <section id="projects" className="snap-start">
-          <Projects projects={projects} />
-        </section>
-
-        <section id="contact" className="snap-start">
-          <ContactMe />
-        </section>
-        <GoUp />
+        {pageInfo && expereiences && projects && skills && socials && (
+          <>
+            <Head>
+              <title>{`${pageInfo?.name} - Portfolio`}</title>
+            </Head>
+            <HeaderPortfolio socials={socials} />
+            <section id="hero" className="snap-start">
+              <HeroComponent pageInfo={pageInfo} />
+            </section>
+            <section id="about" className="snap-center">
+              <About pageInfo={pageInfo} />
+            </section>
+            <section id="experience" className="snap-center">
+              <Experience experiences={expereiences} />
+            </section>
+            <section id="skills" className="snap-start">
+              <Skills skills={skills} />
+            </section>
+            <section id="projects" className="snap-start">
+              <Projects projects={projects} />
+            </section>
+            <section id="contact" className="snap-start">
+              <ContactMe />
+            </section>
+            <GoUp />
+          </>
+        )}
       </div>
     </ErrorBoundary>
   );
