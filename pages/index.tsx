@@ -42,7 +42,8 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props?.pageInfo &&
+        {props !== null &&
+          props?.pageInfo &&
           props?.expereiences &&
           props?.projects &&
           props?.skills &&
