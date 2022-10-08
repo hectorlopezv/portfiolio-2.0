@@ -4,7 +4,7 @@ import Image from "next/image";
 import { urlFor } from "../sanity";
 import { Project } from "../typings";
 type Props = {
-  projects: Project[];
+  projects?: Project[];
 };
 
 const Projects = ({ projects }: Props) => {

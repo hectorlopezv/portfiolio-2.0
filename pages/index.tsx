@@ -1,8 +1,12 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
+import ContactMe from "../components/contact-me";
 import Experience from "../components/experience";
+import GoUp from "../components/go-up";
 import HeroComponent from "../components/hero";
+import Projects from "../components/projects";
+import Skills from "../components/skills";
 
 import { Experience as TExperience, PageInfo, Props } from "../typings";
 import { FetchExperiences } from "../utils/fetchExperiences";
@@ -32,20 +36,36 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props && props?.pageInfo && props?.experiences && (
-          <>
-            <Head>
-              <title>{`Hector Lopez - Portfolio`}</title>
-            </Head>
-            {/* <HeaderPortfolio socials={props?.socials} /> */}
-            <section id="hero" className="snap-start">
-              <HeroComponent pageInfo={props?.pageInfo} />
-            </section>
-            <section id="experience" className="snap-center">
-              <Experience experiences={props?.experiences} />
-            </section>
-          </>
-        )}
+        {props &&
+          props?.pageInfo &&
+          props?.experiences &&
+          props?.skills &&
+          props?.projects && (
+            <>
+              <Head>
+                <title>{`Hector Lopez - Portfolio`}</title>
+              </Head>
+              {/* <HeaderPortfolio socials={props?.socials} /> */}
+              <section id="hero" className="snap-start">
+                <HeroComponent pageInfo={props?.pageInfo} />
+              </section>
+              <section id="experience" className="snap-center">
+                <Experience experiences={props?.experiences} />
+              </section>
+              <section id="skills" className="snap-start">
+                <Skills skills={props?.skills} />
+              </section>
+
+              <section id="projects" className="snap-start">
+                <Projects projects={props?.projects} />
+              </section>
+
+              <section id="contact" className="snap-start">
+                <ContactMe />
+              </section>
+              <GoUp />
+            </>
+          )}
       </div>
     </ErrorBoundary>
   );
