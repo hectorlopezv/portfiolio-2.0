@@ -26,7 +26,7 @@ const ExperienceCard = ({ experience }: Props) => {
         className="w-32 h-32 xl:w-[150px] xl:h-[150px] relative"
       >
         <Image
-          src={urlFor(experience?.compnayImage).url()}
+          src={urlFor(experience?.compnayImage)?.url()}
           alt="company logo"
           layout="fill"
           className="rounded-full object-fit"
@@ -50,7 +50,7 @@ const ExperienceCard = ({ experience }: Props) => {
         </div>
         <p className="uppercase py-5 text-gray-300">
           {new Date(experience?.dateStarted)?.toDateString()} -{" "}
-          {experience.isCurrentlyWorkingHere
+          {experience?.isCurrentlyWorkingHere
             ? "Present"
             : new Date(experience?.dateEnded)?.toDateString()}
         </p>

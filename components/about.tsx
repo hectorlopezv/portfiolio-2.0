@@ -37,7 +37,7 @@ const About = ({ pageInfo }: Props) => {
           className="rounded-lg object-cover"
           layout="fill"
           alt="profile picture"
-          src={urlFor(pageInfo?.ProfilePic).url()}
+          src={urlFor(pageInfo?.ProfilePic)?.url()}
         />
       </motion.div>
 

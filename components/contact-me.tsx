@@ -14,7 +14,7 @@ const ContactMe = (props: Props) => {
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     // Todo SENT TO A SERVER
-    window.location.href = `mailto:hectorvmlopez@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name} ${formData.message} (${formData.email})`;
+    window.location.href = `mailto:hectorvmlopez@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData?.name} ${formData?.message} (${formData?.email})`;
   };
   return (
     <div

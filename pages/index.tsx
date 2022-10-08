@@ -1,14 +1,5 @@
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
-import About from "../components/about";
-import ContactMe from "../components/contact-me";
-import Experience from "../components/experience";
-import GoUp from "../components/go-up";
-import HeaderPortfolio from "../components/header";
-import HeroComponent from "../components/hero";
-import Projects from "../components/projects";
-import Skills from "../components/skills";
 
 import {
   Experience as ExpType,
@@ -34,7 +25,8 @@ function ErrorFallback({ error, resetErrorBoundary }: any) {
   );
 }
 
-const Home = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
+const Home = (props: Props) => {
+  console.log("props", props);
   return (
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
@@ -48,33 +40,7 @@ const Home = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {pageInfo && expereiences && projects && skills && socials && (
-          <>
-            <Head>
-              <title>{`${pageInfo?.name} - Portfolio`}</title>
-            </Head>
-            <HeaderPortfolio socials={socials} />
-            <section id="hero" className="snap-start">
-              <HeroComponent pageInfo={pageInfo} />
-            </section>
-            <section id="about" className="snap-center">
-              <About pageInfo={pageInfo} />
-            </section>
-            <section id="experience" className="snap-center">
-              <Experience experiences={expereiences} />
-            </section>
-            <section id="skills" className="snap-start">
-              <Skills skills={skills} />
-            </section>
-            <section id="projects" className="snap-start">
-              <Projects projects={projects} />
-            </section>
-            <section id="contact" className="snap-start">
-              <ContactMe />
-            </section>
-            <GoUp />
-          </>
-        )}
+        {props?.pageInfo && props?.expereiences && props?.projects && props?.skills && props?.socials && <></>}
       </div>
     </ErrorBoundary>
   );
