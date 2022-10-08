@@ -7,7 +7,7 @@ type Props = {
   socials?: Social[];
 };
 
-const Heading = ({ socials }: Props) => {
+const HeaderPortfolio = ({ socials }: Props) => {
   console.log("socials", socials);
   return (
     <Head>
@@ -62,4 +62,4 @@ const Heading = ({ socials }: Props) => {
     </Head>
   );
 };
-export default Heading;
+export default HeaderPortfolio;
