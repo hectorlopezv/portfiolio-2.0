@@ -3,7 +3,8 @@ import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
 import HeroComponent from "../components/hero";
 
-import { Props } from "../typings";
+import { PageInfo, Props } from "../typings";
+import { FetchPageInfo } from "../utils/fetchPageInfo";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
@@ -46,7 +47,7 @@ const Home = (props: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-  //const pageInfo: PageInfo = await FetchPageInfo();
+  const pageInfo: PageInfo = await FetchPageInfo();
   // const experiences: ExpType[] = await FetchExperiences();
   // const skills: Skill[] = await FetchSkills();
   // const projects: Project[] = await FetchProjects();
@@ -54,6 +55,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   // console.log("socials", socials);
   return {
     props: {
+      pageInfo,
       //  socials,
       // experiences,
       // skills,
