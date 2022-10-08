@@ -5,6 +5,7 @@ import ContactMe from "../components/contact-me";
 import Experience from "../components/experience";
 import GoUp from "../components/go-up";
 import HeroComponent from "../components/hero";
+import HeroHeader from "../components/heroheader";
 import Projects from "../components/projects";
 import Skills from "../components/skills";
 
@@ -14,11 +15,13 @@ import {
   Project,
   Props,
   Skill,
+  Social,
 } from "../typings";
 import { FetchExperiences } from "../utils/fetchExperiences";
 import { FetchPageInfo } from "../utils/fetchPageInfo";
 import { FetchProjects } from "../utils/fetchProjects";
 import { FetchSkills } from "../utils/fetchSkills";
+import { FetchSocials } from "../utils/fetchSocials";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
@@ -44,36 +47,32 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props &&
-          props?.pageInfo &&
-          props?.experiences &&
-          props?.skills &&
-          props?.projects && (
-            <>
-              <Head>
-                <title>{`Hector Lopez - Portfolio`}</title>
-              </Head>
-              {/* <HeaderPortfolio socials={props?.socials} /> */}
-              <section id="hero" className="snap-start">
-                <HeroComponent pageInfo={props?.pageInfo} />
-              </section>
-              <section id="experience" className="snap-center">
-                <Experience experiences={props?.experiences} />
-              </section>
-              <section id="skills" className="snap-start">
-                <Skills skills={props?.skills} />
-              </section>
+        {props && (
+          <>
+            <Head>
+              <title>{`Hector Lopez - Portfolio`}</title>
+            </Head>
+            <HeroHeader socials={props?.socials} />
+            <section id="hero" className="snap-start">
+              <HeroComponent pageInfo={props?.pageInfo} />
+            </section>
+            <section id="experience" className="snap-center">
+              <Experience experiences={props?.experiences} />
+            </section>
+            <section id="skills" className="snap-start">
+              <Skills skills={props?.skills} />
+            </section>
 
-              <section id="projects" className="snap-start">
-                <Projects projects={props?.projects} />
-              </section>
+            <section id="projects" className="snap-start">
+              <Projects projects={props?.projects} />
+            </section>
 
-              <section id="contact" className="snap-start">
-                <ContactMe />
-              </section>
-              <GoUp />
-            </>
-          )}
+            <section id="contact" className="snap-start">
+              <ContactMe />
+            </section>
+            <GoUp />
+          </>
+        )}
       </div>
     </ErrorBoundary>
   );
@@ -84,15 +83,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const experiences: TExperience[] = await FetchExperiences();
   const skills: Skill[] = await FetchSkills();
   const projects: Project[] = await FetchProjects();
-  //const socials: Social[] = await FetchSocials();
+  const socials: Social[] = await FetchSocials();
   // console.log("socials", socials);
   return {
     props: {
       pageInfo,
-      //  socials,
       experiences,
       skills,
       projects,
+      socials,
     },
   };
 };

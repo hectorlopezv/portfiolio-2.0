@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Head from "next/head";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 import { Social } from "../typings";
@@ -7,10 +6,10 @@ type Props = {
   socials?: Social[];
 };
 
-const HeaderPortfolio = ({ socials }: Props) => {
-  console.log("socials", socials);
+const HeroHeader = ({ socials }: Props) => {
+  if (!socials) return null;
   return (
-    <Head>
+    <header>
       <div
         className="sticky top-0 flex p-5 items-start justify-between max-w-7xl mx-auto z-20
     xl:items-center
@@ -59,7 +58,7 @@ const HeaderPortfolio = ({ socials }: Props) => {
           </motion.div>
         </Link>
       </div>
-    </Head>
+    </header>
   );
 };
-export default HeaderPortfolio;
+export default HeroHeader;
