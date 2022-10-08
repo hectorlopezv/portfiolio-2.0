@@ -31,12 +31,14 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        <>
-          <Head>
-            <title>{`Hector Lopez - Portfolio`}</title>
-          </Head>
-          <HeaderPortfolio socials={props?.socials} />
-        </>
+        {props && (
+          <>
+            <Head>
+              <title>{`Hector Lopez - Portfolio`}</title>
+            </Head>
+            <HeaderPortfolio socials={props?.socials} />
+          </>
+        )}
       </div>
     </ErrorBoundary>
   );
