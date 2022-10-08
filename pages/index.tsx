@@ -1,9 +1,11 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
+import Experience from "../components/experience";
 import HeroComponent from "../components/hero";
 
-import { PageInfo, Props } from "../typings";
+import { Experience as TExperience, PageInfo, Props } from "../typings";
+import { FetchExperiences } from "../utils/fetchExperiences";
 import { FetchPageInfo } from "../utils/fetchPageInfo";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
@@ -30,7 +32,7 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props && props?.pageInfo && (
+        {props && props?.pageInfo && props?.experiences && (
           <>
             <Head>
               <title>{`Hector Lopez - Portfolio`}</title>
@@ -38,6 +40,9 @@ const Home = (props: Props) => {
             {/* <HeaderPortfolio socials={props?.socials} /> */}
             <section id="hero" className="snap-start">
               <HeroComponent pageInfo={props?.pageInfo} />
+            </section>
+            <section id="experience" className="snap-center">
+              <Experience experiences={props?.experiences} />
             </section>
           </>
         )}
@@ -48,7 +53,7 @@ const Home = (props: Props) => {
 
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const pageInfo: PageInfo = await FetchPageInfo();
-  // const experiences: ExpType[] = await FetchExperiences();
+  const experiences: TExperience[] = await FetchExperiences();
   // const skills: Skill[] = await FetchSkills();
   // const projects: Project[] = await FetchProjects();
   //const socials: Social[] = await FetchSocials();
@@ -57,7 +62,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
     props: {
       pageInfo,
       //  socials,
-      // experiences,
+      experiences,
       // skills,
       // projects,
       // socials,

@@ -6,6 +6,7 @@ type Props = {
 };
 
 const Experience = ({ experiences }: Props) => {
+  if (!experiences) return null;
   return (
     <motion.div
       initial={{ opacity: 0 }}
