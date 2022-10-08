@@ -49,7 +49,7 @@ const Home = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
      "
       >
         <Head>
-          <title>{`${pageInfo?.name} - Portfolio`}</title>
+          <title>{`Hector Lopez - Portfolio`}</title>
         </Head>
 
         <HeaderPortfolio socials={socials} />
