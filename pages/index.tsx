@@ -1,10 +1,9 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
-import HeaderPortfolio from "../components/header";
+import HeroComponent from "../components/hero";
 
-import { Props, Social } from "../typings";
-import { FetchSocials } from "../utils/fetchSocials";
+import { Props } from "../typings";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
@@ -17,7 +16,6 @@ function ErrorFallback({ error, resetErrorBoundary }: any) {
 }
 
 const Home = (props: Props) => {
-  console.log("props", props);
   return (
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
@@ -36,7 +34,10 @@ const Home = (props: Props) => {
             <Head>
               <title>{`Hector Lopez - Portfolio`}</title>
             </Head>
-            <HeaderPortfolio socials={props?.socials} />
+            {/* <HeaderPortfolio socials={props?.socials} /> */}
+            <section id="hero" className="snap-start">
+              <HeroComponent pageInfo={props.pageInfo} />
+            </section>
           </>
         )}
       </div>
@@ -49,11 +50,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   // const experiences: ExpType[] = await FetchExperiences();
   // const skills: Skill[] = await FetchSkills();
   // const projects: Project[] = await FetchProjects();
-  const socials: Social[] = await FetchSocials();
-  console.log("socials", socials);
+  //const socials: Social[] = await FetchSocials();
+  // console.log("socials", socials);
   return {
     props: {
-      socials,
+      //  socials,
       // experiences,
       // skills,
       // projects,
