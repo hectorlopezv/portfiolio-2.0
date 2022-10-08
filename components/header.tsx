@@ -8,6 +8,7 @@ type Props = {
 };
 
 const HeaderPortfolio = ({ socials }: Props) => {
+  console.log("socials", socials);
   return (
     <Head>
       <div
