@@ -19,7 +19,7 @@ const Main = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
      "
     >
       <Head>
-        <title>Hector Portfolio</title>
+        <title>{pageInfo?.name || ""} - Portfolio</title>
       </Head>
 
       <Header socials={socials} />
