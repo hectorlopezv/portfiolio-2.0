@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
 import ContactMe from "../components/contact-me";
@@ -78,13 +78,14 @@ const Home = (props: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
+export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const pageInfo: PageInfo = await FetchPageInfo();
   const experiences: TExperience[] = await FetchExperiences();
   const skills: Skill[] = await FetchSkills();
   const projects: Project[] = await FetchProjects();
   const socials: Social[] = await FetchSocials();
   return {
+    revalidate: 60,
     props: {
       pageInfo,
       experiences,
