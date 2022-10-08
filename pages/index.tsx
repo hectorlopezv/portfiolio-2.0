@@ -84,7 +84,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const skills: Skill[] = await FetchSkills();
   const projects: Project[] = await FetchProjects();
   const socials: Social[] = await FetchSocials();
-  // console.log("socials", socials);
   return {
     props: {
       pageInfo,
