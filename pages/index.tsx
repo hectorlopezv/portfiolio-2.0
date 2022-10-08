@@ -29,14 +29,14 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props && props?.socials && (
+        {props && props?.pageInfo && (
           <>
             <Head>
               <title>{`Hector Lopez - Portfolio`}</title>
             </Head>
             {/* <HeaderPortfolio socials={props?.socials} /> */}
             <section id="hero" className="snap-start">
-              <HeroComponent pageInfo={props.pageInfo} />
+              <HeroComponent pageInfo={props?.pageInfo} />
             </section>
           </>
         )}
