@@ -3,8 +3,8 @@ import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
 import HeaderPortfolio from "../components/header";
 
-import { PageInfo, Props } from "../typings";
-import { FetchPageInfo } from "../utils/fetchPageInfo";
+import { Props, Social } from "../typings";
+import { FetchSocials } from "../utils/fetchSocials";
 
 function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
@@ -31,34 +31,27 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props &&
-          props?.pageInfo &&
-          props?.experiences &&
-          props?.projects &&
-          props?.skills &&
-          props?.socials && (
-            <>
-              <Head>
-                <title>{`Hector Lopez - Portfolio`}</title>
-              </Head>
-              <HeaderPortfolio socials={props?.socials} />
-            </>
-          )}
+        <>
+          <Head>
+            <title>{`Hector Lopez - Portfolio`}</title>
+          </Head>
+          <HeaderPortfolio socials={props?.socials} />
+        </>
       </div>
     </ErrorBoundary>
   );
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-  const pageInfo: PageInfo = await FetchPageInfo();
+  //const pageInfo: PageInfo = await FetchPageInfo();
   // const experiences: ExpType[] = await FetchExperiences();
   // const skills: Skill[] = await FetchSkills();
   // const projects: Project[] = await FetchProjects();
-  // const socials: Social[] = await FetchSocials();
-  console.log("pageInfo", pageInfo);
+  const socials: Social[] = await FetchSocials();
+  console.log("socials", socials);
   return {
     props: {
-      pageInfo,
+      socials,
       // experiences,
       // skills,
       // projects,

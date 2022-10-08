@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 import { Social } from "../typings";
 type Props = {
-  socials: Social[];
+  socials?: Social[];
 };
 
 const Heading = ({ socials }: Props) => {
@@ -26,14 +26,15 @@ const Heading = ({ socials }: Props) => {
           transition={{ duration: 1.5 }}
           className="flex flex-row items-center"
         >
-          {socials?.map((social) => (
-            <SocialIcon
-              url={social?.url}
-              fgColor="gray"
-              bgColor="transparent"
-              key={social?._id}
-            />
-          ))}
+          {socials &&
+            socials?.map((social) => (
+              <SocialIcon
+                url={social?.url}
+                fgColor="gray"
+                bgColor="transparent"
+                key={social?._id}
+              />
+            ))}
         </motion.div>
         <Link href={"#contact"}>
           <motion.div
