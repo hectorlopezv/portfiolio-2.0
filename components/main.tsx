@@ -23,7 +23,6 @@ const Main = ({ pageInfo, expereiences, projects, skills, socials }: Props) => {
       </Head>
 
       <Header socials={socials} />
-
       <section id="hero" className="snap-start">
         <HeroComponent pageInfo={pageInfo} />
       </section>
