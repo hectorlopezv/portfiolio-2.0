@@ -1,5 +1,7 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
+import HeaderPortfolio from "../components/header";
 
 import {
   Experience as ExpType,
@@ -40,7 +42,18 @@ const Home = (props: Props) => {
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
-        {props?.pageInfo && props?.expereiences && props?.projects && props?.skills && props?.socials && <></>}
+        {props?.pageInfo &&
+          props?.expereiences &&
+          props?.projects &&
+          props?.skills &&
+          props?.socials && (
+            <>
+              <Head>
+                <title>{`Hector Lopez - Portfolio`}</title>
+              </Head>
+              <HeaderPortfolio socials={props.socials} />
+            </>
+          )}
       </div>
     </ErrorBoundary>
   );
