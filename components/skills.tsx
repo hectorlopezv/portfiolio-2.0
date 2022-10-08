@@ -5,6 +5,7 @@ type Props = {
 };
 
 const Skills = ({ skills }: Props) => {
+  if (!skills) return null;
   return (
     <div
       className="flex relative flex-col text-center md:text-left
