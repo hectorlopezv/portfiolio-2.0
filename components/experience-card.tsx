@@ -12,7 +12,8 @@ const ExperienceCard = ({ experience }: Props) => {
     <article
       className="flex flex-col rounded-lg 
     w-full md:w-[550px]
-    snap-center bg-[#292929] p-10
+    snap-center bg-[#292929] px-6
+    mb-6
     opacity-40 hover:opacity-100
     cursor-pointer transition-opacity duration-200
     overflow-hidden
@@ -23,7 +24,7 @@ const ExperienceCard = ({ experience }: Props) => {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 xl:w-[150px] xl:h-[150px] relative"
+        className="w-32 h-32 xl:w-[150px] xl:h-[150px] relative hidden lg:block"
       >
         <Image
           src={urlFor(experience?.compnayImage)?.url()}
@@ -33,34 +34,42 @@ const ExperienceCard = ({ experience }: Props) => {
         />
       </motion.div>
 
-      <div className="px-0 md:px-10">
-        <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
-        <p className="font-bold text-xl mt-1">{experience?.compnay}</p>
-        <div className="flex space-x-2 my-2">
-          {experience?.technologies?.map((technology) => (
-            <div className="h-10 w-10 relative" key={technology?._id}>
-              <Image
-                src={urlFor(technology?.image)?.url()}
-                alt="skill"
-                layout="fill"
-                className="rounded-full object-cover object-center"
-              />
-            </div>
-          ))}
+      <div className="">
+        <h4 className="text-md lg:text-3xl font-light">
+          {experience?.jobTitle}
+        </h4>
+        <p className="font-bold lg:text-xl mt-1">{experience?.compnay}</p>
+        <div className="flex  items-center lg:space-x-2 mt-2">
+          {experience?.technologies?.map((technology, index) => {
+            return (
+              <div
+                className={`h-10 w-10 relative ${index > 0 ? "ml-1" : ""}`}
+                key={technology?._id}
+              >
+                <Image
+                  src={urlFor(technology?.image)?.url()}
+                  alt="skill"
+                  layout="fill"
+                  className="rounded-full object-cover object-center flex-shrink-0"
+                />
+              </div>
+            );
+          })}
         </div>
-        <p className="uppercase py-5 text-gray-300">
+        <p className="uppercase py-5 text-gray-300 sm: text-sm lg:text-base">
           {new Date(experience?.dateStarted)?.toDateString()} -{" "}
           {experience?.isCurrentlyWorkingHere
             ? "Present"
             : new Date(experience?.dateEnded)?.toDateString()}
         </p>
         <ul
-          className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll scrollbar-thin
-          px-2
-         scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80 scrollbar-thumb-rounded-full"
+          className="list-disc space-y-4 lg:text-lg h-96 overflow-y-scroll scrollbar-thin
+        "
         >
           {experience?.points.map((point, i) => (
-            <li key={i}>{point}</li>
+            <li key={i} className="text-sm">
+              {point}
+            </li>
           ))}
         </ul>
       </div>

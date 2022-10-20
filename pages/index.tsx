@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
+import About from "../components/about";
 import ContactMe from "../components/contact-me";
 import Experience from "../components/experience";
 import GoUp from "../components/go-up";
@@ -44,20 +45,24 @@ const Home = (props: Props) => {
       <div
         className="bg-[rgb(36,36,36)] text-white
          w-screen
-     h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0
+      snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0
      scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
      "
       >
         {props && (
-          <>
+          <div>
             <Head>
               <title>{`Hector Lopez - Portfolio`}</title>
             </Head>
             <HeroHeader socials={props?.socials} />
-            <section id="hero" className="snap-start">
+            <section id="hero" className="lg:pt-14 snap-center">
               <HeroComponent pageInfo={props?.pageInfo} />
             </section>
-            <section id="experience" className="snap-center">
+
+            <section id="about" className="snap-start">
+              <About pageInfo={props.pageInfo} />
+            </section>
+            <section id="experience" className="snap-start">
               <Experience experiences={props?.experiences} />
             </section>
             <section id="skills" className="snap-start">
@@ -68,11 +73,11 @@ const Home = (props: Props) => {
               <Projects projects={props?.projects} />
             </section>
 
-            <section id="contact" className="snap-start">
+            <section id="contact" className="">
               <ContactMe />
             </section>
             <GoUp />
-          </>
+          </div>
         )}
       </div>
     </ErrorBoundary>

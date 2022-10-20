@@ -1,6 +1,5 @@
-import React from "react";
-import { EnvelopeIcon, MapIcon, PhoneIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/solid";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { EnvelopeIcon, MapIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import { SubmitHandler, useForm } from "react-hook-form";
 type Props = {};
 
 type Inputs = {
@@ -18,30 +17,33 @@ const ContactMe = (props: Props) => {
   };
   return (
     <div
-      className="h-screen relative flex flex-col text-center md:text-left 
-    max-w-7xl px-10 justify-evenly mx-auto items-center"
+      className=" relative flex flex-col text-center md:text-left 
+    max-w-7xl px-10 justify-evenly mx-auto items-center
+    h-screen pb-10
+    "
     >
-      <h3 className="my-10 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="uppercase tracking-[20px] text-gray-500 text-xl  lg:text-2xl">
         Contact
       </h3>
-      <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col">
+
+        <h4 className="text-xl lg:text-4xl font-semibold text-center">
           I got just what you need.{" "}
           <span className="decoration-[#F7AB0A]/50  underline">Lets Talk.</span>
         </h4>
 
-        <div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+57 32055528711</p>
+        <div className="space-y-4 lg:space-y-10 mt-5">
+          <div className="flex items-center justify-start lg:justify-center space-x-5">
+            <PhoneIcon className="text-[#F7AB0A] w-6 h-6 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-md lg:text-2xl">+57 32055528711</p>
           </div>
-          <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">hectorvmlopez@gmail.com</p>
+          <div className="flex items-center justify-start lg:justify-center space-x-5">
+            <EnvelopeIcon className="text-[#F7AB0A] w-6 h-6 md:h-7 md:w-7  animate-pulse" />
+            <p className="text-md lg:text-2xl">hectorvmlopez@gmail.com</p>
           </div>
-          <div className="flex items-center space-x-5 justify-center">
-            <MapIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Barranquilla, Colombia</p>
+          <div className="flex items-center justify-start lg:justify-center space-x-5">
+            <MapIcon className="text-[#F7AB0A] w-6 h-6 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-md lg:text-2xl">Barranquilla, Colombia</p>
           </div>
         </div>
       </div>
@@ -77,8 +79,8 @@ const ContactMe = (props: Props) => {
           className="contactInput"
         />
         <button
-          className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black
-          font-bold text-lg
+          className="bg-[#F7AB0A] py-3 md:py-5 lg:px-10 rounded-md text-black
+          font-bold text-md lg:text-lg
           "
           type="submit"
         >

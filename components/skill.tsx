@@ -17,9 +17,10 @@ const Skill = ({ directionLeft, skill }: Props) => {
         }}
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className=" w-[4.5rem] md:w-20
-        h-[4.5rem] md:h-20 filter group-hover:grayscale
-        transition duration-300"
+        className="relative filter group-hover:grayscale
+        transition duration-300
+        h-[4rem] w-[4rem] rounded-full
+        "
       >
         <Image
           layout="fill"
@@ -31,11 +32,10 @@ const Skill = ({ directionLeft, skill }: Props) => {
 
       <div
         className="absolute opacity-0 group-hover:opacity-80 transition duration-300
-        ease-in-out group-hover:bg-white w-[4.5rem] md:w-20
-        h-[4.5rem] md:h-20 rounded-full z-0"
+        ease-in-out group-hover:bg-white rounded-full z-0 h-[4rem] w-[4rem]"
       >
-        <div className="flex items-center justify-center h-full">
-          <p className="text-2xl md:text-3xl font-bold text-black opacity-100">{`${skill?.progress}%`}</p>
+        <div className="flex items-center justify-center h-full rounded-full">
+          <p className="text-xs md:text-3xl font-bold text-black opacity-100">{`${skill?.progress}%`}</p>
         </div>
       </div>
     </div>

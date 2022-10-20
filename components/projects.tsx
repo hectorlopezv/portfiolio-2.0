@@ -14,11 +14,19 @@ const Projects = ({ projects }: Props) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex 
+      className="  flex 
       overflow-hidden flex-col text-left md:flex-row max-w-full
-    justify-evenly mx-auto items-center z-0"
+      h-screen mx-auto items-center z-0
+    pt-11
+   
+      "
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3
+        className="
+      uppercase tracking-[20px]
+      
+      text-gray-500 md:text-2xl"
+      >
         Projects
       </h3>
 
@@ -26,13 +34,13 @@ const Projects = ({ projects }: Props) => {
         className="relative w-full flex overflow-x-scroll 
       overflow-y-hidden snap-x snap-mandatory z-10
       scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
-
+      h-full
       "
       >
         {projects?.map((project, index) => (
           <div
             className="w-screen flex-shrink-0 snap-center 
-            flex flex-col space-y-5 items-center justify-center h-screen
+            flex flex-col space-y-5 items-center justify-center 
             "
             key={project?._id}
           >
@@ -52,8 +60,8 @@ const Projects = ({ projects }: Props) => {
               />
             </motion.div>
 
-            <div className="space-y-10 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-4xl font-semibold text-center">
+            <div className="space-y-5 lg:space-y-10 px-0 md:px-10 max-w-6xl min-h-[198px]">
+              <h4 className="text-xl lg:text-4xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]/50 px-1">
                   Case of study {index + 1} of {projects.length} :{" "}
                 </span>
@@ -79,7 +87,7 @@ const Projects = ({ projects }: Props) => {
                 ))}
               </div>
 
-              <p className="text-xl text-center md:text-left px-1">
+              <p className="text-sm lg:text-xl text-center md:text-left px-1">
                 {project?.summary}
               </p>
             </div>

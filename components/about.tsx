@@ -3,10 +3,11 @@ import Image from "next/image";
 import { urlFor } from "../sanity";
 import { PageInfo } from "../typings";
 type Props = {
-  pageInfo: PageInfo;
+  pageInfo?: PageInfo;
 };
 
 const About = ({ pageInfo }: Props) => {
+  if (!pageInfo) return null;
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -14,11 +15,12 @@ const About = ({ pageInfo }: Props) => {
         duration: 1.5,
       }}
       whileInView={{ opacity: 1 }}
-      className="flex relative flex-col text-center md:text-left  md:flex-row h-screen
+      className="flex relative flex-col text-center md:text-left  md:flex-row 
     max-w-7xl px-8 justify-evenly mx-auto items-center overflow-hidden
+    h-screen
     "
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl">
         About
       </h3>
 
@@ -29,7 +31,7 @@ const About = ({ pageInfo }: Props) => {
         }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="mt-20 md:mt-5 -mb-20 md:mb-0 flex-shrink-0 w-56 h-72 relative
+        className=" flex-shrink-0 w-56 h-56 relative
     md:rounded-lg md:w-64 md:h-96
         xl:w-[350px] xl:h-[400px]"
       >
@@ -42,9 +44,11 @@ const About = ({ pageInfo }: Props) => {
       </motion.div>
 
       <div className="space-y-10 px-0 md:px-10 mt-4">
-        <p className="text-base text-center">
-          {pageInfo?.backgroundInformation}
-        </p>
+        <div className="text-sm space-y-2 text-center">
+          {pageInfo?.backgroundInformation.split(".").map((text) => {
+            return <p key={text}>{text}</p>;
+          })}
+        </div>
       </div>
     </motion.div>
   );
