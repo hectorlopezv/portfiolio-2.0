@@ -19,7 +19,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
         whileInView={{ opacity: 1, x: 0 }}
         className="relative filter group-hover:grayscale
         transition duration-300
-        h-[4rem] w-[4rem] rounded-full
+        h-[3.2rem] w-[3.2rem] sm:h-[4rem] sm:w-[4rem] rounded-full
         "
       >
         <Image
