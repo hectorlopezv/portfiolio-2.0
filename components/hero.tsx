@@ -25,7 +25,7 @@ const HeroComponent: FC<PropsType> = ({ pageInfo }) => {
   return (
     <div className=" flex flex-col space-y-8 items-center justify-center text-center overflow-hidden text-xs h-screen">
       <BackGroundCircles />
-      <div className="relative h-52 w-52">
+      <div className="relative h-64 w-64  md:h-72 md:w-72">
         <Image
           src={urlFor(pageInfo?.heroImage).url()}
           alt="profile picture"
@@ -35,11 +35,15 @@ const HeroComponent: FC<PropsType> = ({ pageInfo }) => {
       </div>
 
       <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+        <h2
+          className="
+        text-sm md:text-2xl md:tracking-[18px]
+         uppercase text-gray-500 pb-2 tracking-[15px]"
+        >
           {pageInfo?.role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10 min-h-[98px]">
-          <span className="mr-3 text-3xl">{text}</span>
+          <span className="mr-3 text-3xl  md:text-4xl">{text}</span>
           <Cursor cursorColor="#F7AB8A" />
         </h1>
 

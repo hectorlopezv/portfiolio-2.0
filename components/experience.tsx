@@ -14,12 +14,14 @@ const Experience = ({ experiences }: Props) => {
       transition={{ duration: 1.5 }}
       className=" flex relative
     items-center
-    flex-col text-left md:flex-row 
+    flex-col text-left
     max-w-full justify-evenly mx-auto
     h-screen
     "
     >
-      <h3 className="uppercase tracking-[14px] text-gray-500 text-2xl pt-10 px-8">
+      <h3 className="
+      uppercase tracking-[14px] text-gray-500
+      text-2xl md:text-3xl pt-10 px-8">
         Experience
       </h3>
 

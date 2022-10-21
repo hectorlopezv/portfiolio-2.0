@@ -14,18 +14,14 @@ const Projects = ({ projects }: Props) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="  flex 
-      overflow-hidden flex-col text-left md:flex-row max-w-full
-      h-screen mx-auto items-center z-0
-    pt-11
-   
-      "
+      className="
+      flex overflow-hidden flex-col text-left max-w-full
+      h-screen mx-auto items-center z-0 pt-11"
     >
       <h3
         className="
       uppercase tracking-[20px]
-      
-      text-gray-500 md:text-2xl"
+      text-gray-500 text-xl md:text-2xl"
       >
         Projects
       </h3>
@@ -49,8 +45,8 @@ const Projects = ({ projects }: Props) => {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative w-[300px] h-[300px] md:w-[400px]
-               md:h-[400px]"
+              className="relative w-[300px] h-[300px] sm:w-[400px]
+              sm:h-[400px]"
             >
               <Image
                 src={urlFor(project?.image)?.url()}
@@ -87,7 +83,7 @@ const Projects = ({ projects }: Props) => {
                 ))}
               </div>
 
-              <p className="text-sm lg:text-xl text-center md:text-left px-1">
+              <p className="text-sm sm:text-xl lg:text-xl text-center md:text-left px-1 sm:px-8 md:px-6">
                 {project?.summary}
               </p>
             </div>

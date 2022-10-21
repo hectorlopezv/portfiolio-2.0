@@ -9,10 +9,12 @@ const Skills = ({ skills }: Props) => {
   return (
     <div
       className="text-center md:text-left
-      max-w-fit xl:px-10 xl:space-y-0 mx-auto
+     xl:px-10 xl:space-y-0 
      min-w-[360px] overflow-y-scroll scrollbar-thin overflow-x-hidden
-     pt-10 
-     h-screen
+     h-screen pt-6
+     flex
+     flex-col
+     items-center
      "
     >
       <h3 className="uppercase tracking-[20px] text-gray-500 text-xl lg:text-2xl ">
@@ -27,10 +29,13 @@ const Skills = ({ skills }: Props) => {
         Hover Over a skill for proficiency
       </h3>
 
-      <div className="
+      <div
+        className="
       grid justify-items-center sm:grid-cols-3
       grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mt-10
-      ">
+      w-full
+      "
+      >
         {skills?.slice(0, skills?.length / 2)?.map((skill) => (
           <Skill key={skill?._id} skill={skill} />
         ))}

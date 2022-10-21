@@ -11,20 +11,18 @@ const ExperienceCard = ({ experience }: Props) => {
   return (
     <article
       className="flex flex-col rounded-lg 
-    w-full md:w-[550px]
+    w-full md:w-[550px] md:h-[42rem]
     snap-center bg-[#292929] px-6
-    mb-6
-    opacity-40 hover:opacity-100
+    mb-6 opacity-40 hover:opacity-100
     cursor-pointer transition-opacity duration-200
-    overflow-hidden
-    items-center space-y-7 flex-shrink-0"
+    mx-1 overflow-hidden items-center space-y-7 flex-shrink-0" 
     >
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 xl:w-[150px] xl:h-[150px] relative hidden lg:block"
+        className="relative hidden lg:block"
       >
         <Image
           src={urlFor(experience?.compnayImage)?.url()}
@@ -35,10 +33,10 @@ const ExperienceCard = ({ experience }: Props) => {
       </motion.div>
 
       <div className="">
-        <h4 className="text-md lg:text-3xl font-light">
+        <h4 className="text-md md:text-2xl lg:text-3xl font-light">
           {experience?.jobTitle}
         </h4>
-        <p className="font-bold lg:text-xl mt-1">{experience?.compnay}</p>
+        <p className="font-bold md:text-xl lg:text-xl mt-1">{experience?.compnay}</p>
         <div className="flex  items-center lg:space-x-2 mt-2">
           {experience?.technologies?.map((technology, index) => {
             return (
@@ -56,18 +54,19 @@ const ExperienceCard = ({ experience }: Props) => {
             );
           })}
         </div>
-        <p className="uppercase py-5 text-gray-300 sm: text-sm lg:text-base">
+        <p className="uppercase py-5 text-gray-300 text-sm md:text-base lg:text-xl">
           {new Date(experience?.dateStarted)?.toDateString()} -{" "}
           {experience?.isCurrentlyWorkingHere
             ? "Present"
             : new Date(experience?.dateEnded)?.toDateString()}
         </p>
         <ul
-          className="list-disc space-y-4 lg:text-lg h-96 overflow-y-scroll scrollbar-thin
-        "
+          className="
+          list-disc space-y-4 h-96
+          overflow-y-scroll scrollbar-thin"
         >
           {experience?.points.map((point, i) => (
-            <li key={i} className="text-sm">
+            <li key={i} className="text-base sm:text-xl">
               {point}
             </li>
           ))}

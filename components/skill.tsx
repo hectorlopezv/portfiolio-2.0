@@ -35,7 +35,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
         ease-in-out group-hover:bg-white rounded-full z-0 h-[4rem] w-[4rem]"
       >
         <div className="flex items-center justify-center h-full rounded-full">
-          <p className="text-xs md:text-3xl font-bold text-black opacity-100">{`${skill?.progress}%`}</p>
+          <p className="text-xs sm:text-base font-bold text-black opacity-100">{`${skill?.progress}%`}</p>
         </div>
       </div>
     </div>

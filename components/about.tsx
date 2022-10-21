@@ -15,12 +15,14 @@ const About = ({ pageInfo }: Props) => {
         duration: 1.5,
       }}
       whileInView={{ opacity: 1 }}
-      className="flex relative flex-col text-center md:text-left  md:flex-row 
-    max-w-7xl px-8 justify-evenly mx-auto items-center overflow-hidden
+      className="flex relative flex-col text-center md:text-left
+     px-8 justify-evenly mx-auto items-center overflow-hidden
     h-screen
     "
     >
-      <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="
+      uppercase tracking-[20px] text-gray-500
+      text-2xl md:text-3xl">
         About
       </h3>
 
@@ -31,9 +33,9 @@ const About = ({ pageInfo }: Props) => {
         }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className=" flex-shrink-0 w-56 h-56 relative
-    md:rounded-lg md:w-64 md:h-96
-        xl:w-[350px] xl:h-[400px]"
+        className="
+        flex-shrink-0 w-56 h-56 md:w-64 md:h-64 relative
+        md:rounded-lg xl:w-[350px] xl:h-[400px]"
       >
         <Image
           className="rounded-lg object-cover"
@@ -43,8 +45,8 @@ const About = ({ pageInfo }: Props) => {
         />
       </motion.div>
 
-      <div className="space-y-10 px-0 md:px-10 mt-4">
-        <div className="text-sm space-y-2 text-center">
+      <div className="space-y-10 px-0 md:px-10">
+        <div className="text-sm sm:text-xl space-y-1 text-left ">
           {pageInfo?.backgroundInformation.split(".").map((text) => {
             return <p key={text}>{text}</p>;
           })}

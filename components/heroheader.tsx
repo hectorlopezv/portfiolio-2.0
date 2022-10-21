@@ -44,8 +44,8 @@ const HeroHeader = ({ socials }: Props) => {
   return (
     <header>
       <div
-        className="fixed p-5 items-start justify-between max-w-7xl mx-auto z-20
-    h-11 w-full hidden lg:flex "
+        className="fixed p-5 items-start justify-between w-full mx-auto z-20
+    h-11  hidden lg:flex "
       >
         <motion.div
           initial={{
@@ -61,6 +61,8 @@ const HeroHeader = ({ socials }: Props) => {
             socials?.map((social) => (
               <SocialIcon
                 url={social?.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 fgColor="gray"
                 bgColor="transparent"
                 key={social?._id}
@@ -84,7 +86,7 @@ const HeroHeader = ({ socials }: Props) => {
               fgColor="gray"
               bgColor="transparent"
             />
-            <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+            <p className="uppercase hidden md:inline-flex text-sm text-gray-400 ml-auto">
               Get In Touch
             </p>
           </motion.div>
@@ -178,7 +180,7 @@ const HeroHeader = ({ socials }: Props) => {
                       </a>
                     </Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="#contact">
                       <a className="block p-4 text-md font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
                         Contact

@@ -22,12 +22,12 @@ const ContactMe = (props: Props) => {
     h-screen pb-10
     "
     >
-      <h3 className="uppercase tracking-[20px] text-gray-500 text-xl  lg:text-2xl">
+      <h3 className="uppercase tracking-[20px] text-gray-500 text-xl sm:text-2xl">
         Contact
       </h3>
       <div className="flex flex-col">
 
-        <h4 className="text-xl lg:text-4xl font-semibold text-center">
+        <h4 className="text-xl sm:text-2xl lg:text-4xl font-semibold text-center">
           I got just what you need.{" "}
           <span className="decoration-[#F7AB0A]/50  underline">Lets Talk.</span>
         </h4>
@@ -35,15 +35,15 @@ const ContactMe = (props: Props) => {
         <div className="space-y-4 lg:space-y-10 mt-5">
           <div className="flex items-center justify-start lg:justify-center space-x-5">
             <PhoneIcon className="text-[#F7AB0A] w-6 h-6 md:h-7 md:w-7 animate-pulse" />
-            <p className="text-md lg:text-2xl">+57 32055528711</p>
+            <p className="text-md sm:text-xl lg:text-2xl">+57 32055528711</p>
           </div>
           <div className="flex items-center justify-start lg:justify-center space-x-5">
             <EnvelopeIcon className="text-[#F7AB0A] w-6 h-6 md:h-7 md:w-7  animate-pulse" />
-            <p className="text-md lg:text-2xl">hectorvmlopez@gmail.com</p>
+            <p className="text-md sm:text-xl lg:text-2xl">hectorvmlopez@gmail.com</p>
           </div>
           <div className="flex items-center justify-start lg:justify-center space-x-5">
             <MapIcon className="text-[#F7AB0A] w-6 h-6 md:h-7 md:w-7 animate-pulse" />
-            <p className="text-md lg:text-2xl">Barranquilla, Colombia</p>
+            <p className="text-md sm:text-xl lg:text-2xl">Barranquilla, Colombia</p>
           </div>
         </div>
       </div>
@@ -52,7 +52,9 @@ const ContactMe = (props: Props) => {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-2 w-full mx-auto"
       >
-        <div className="flex flex-col md:flex-row md:space-x-2 space-y-2 md:space-y-0">
+        <div className="
+        flex flex-col md:flex-row md:space-x-2
+        space-y-2 md:space-y-0">
           <input
             {...register("name")}
             placeholder="Name"
@@ -79,7 +81,9 @@ const ContactMe = (props: Props) => {
           className="contactInput"
         />
         <button
-          className="bg-[#F7AB0A] py-3 md:py-5 lg:px-10 rounded-md text-black
+          className="
+          bg-[#F7AB0A] py-3 
+          sm:py-5 lg:px-10 rounded-md text-black
           font-bold text-md lg:text-lg
           "
           type="submit"
